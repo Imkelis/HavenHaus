@@ -11,25 +11,28 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int myIndex = 0;
 
+  //List of pages my app uses / will use.
+  final List<Widget> pageList = [
+    Center(child: Text("Page1")),
+    Center(child: Text("Page2")),
+    Profile(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: appBar(context),
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 30, right: 30, top: 40),
-            // height: screenHeight * .15,
-            // color: Colors.blue,
-            child: Text('what'),
-          ),
-        ],
-      ),
+      //Paints the children pages onto the screen
+      body: IndexedStack(index: myIndex, children: pageList),
+
+      //This sets the navigation bar at the bottom of the screen
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.black,
         selectedItemColor: Colors.white,
         backgroundColor: const Color.fromARGB(255, 30, 184, 255),
+
         onTap: (index) {
           setState(() {
             myIndex = index;
@@ -38,13 +41,17 @@ class _HomePageState extends State<HomePage> {
         currentIndex: myIndex,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.phone), label: "Phone"),
-          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: "Alarm"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.horizontal_rule),
+            label: "Mid Section",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Social"),
         ],
       ),
     );
   }
 
+  //This sets the top bar of the screen
   AppBar appBar(BuildContext context) {
     return AppBar(
       backgroundColor: const Color.fromARGB(255, 30, 184, 255),
@@ -55,23 +62,18 @@ class _HomePageState extends State<HomePage> {
       ),
       centerTitle: true,
 
-      //There is definetly a better way of doing this. My current aim is to figure out how to make this better.
       leading: IconButton(
-        onPressed: () => Navigator.of(
-          context,
-        ).push(MaterialPageRoute(builder: (context) => const Profile())),
-        icon: Container(decoration: BoxDecoration(color: Colors.green)),
-      ),
-      actions: [
-        GestureDetector(
-          onTap: () => Profile(),
-          child: Container(
-            decoration: BoxDecoration(color: Colors.black),
-            width: 50,
-            alignment: Alignment.center,
+        onPressed: () {
+          setState(() {
+            myIndex = 2;
+          });
+        },
+        icon: Container(
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 97, 239, 255),
           ),
         ),
-      ],
+      ),
     );
   }
 }
