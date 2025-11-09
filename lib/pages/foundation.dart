@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:househaus/pages/profile.dart';
+import 'package:househaus/pages/mainManagement.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,8 +14,8 @@ class _HomePageState extends State<HomePage> {
 
   //List of pages my app uses / will use.
   final List<Widget> pageList = [
-    Center(child: Text("Page1")),
-    Center(child: Text("Page2")),
+    MainManagement(),
+    Center(child: Text("Mid Section for something")),
     Profile(),
   ];
 
@@ -56,9 +57,9 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       backgroundColor: const Color.fromARGB(255, 30, 184, 255),
       title: Text(
-        'HomePage',
+        'HavenHaus',
         style: TextStyle(color: Colors.black),
-        textScaler: TextScaler.linear(1.25),
+        textScaler: TextScaler.linear(1.15),
       ),
       centerTitle: true,
 
@@ -71,6 +72,7 @@ class _HomePageState extends State<HomePage> {
         icon: Container(
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 97, 239, 255),
+            border: Border.all(color: Colors.black),
           ),
         ),
       ),

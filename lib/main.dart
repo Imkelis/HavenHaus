@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:househaus/pages/home.dart';
+import 'package:househaus/pages/foundation.dart';
 
 void main() {
   runApp(MyApp());
