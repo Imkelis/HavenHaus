@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549033625350",
+    "project_id": "havenhaus-c5328",
+    "storage_bucket": "havenhaus-c5328.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549033625350:android:51dd41099399eba463c087",
+        "android_client_info": {
+          "package_name": "com.example.househaus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjvzlb0-cLzMFnq5jr376p-Xfyo587lyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:househaus/pages/sharedNotepad.dart';
 import 'profile.dart';
 
 class MainManagement extends StatelessWidget {
@@ -10,7 +11,7 @@ class MainManagement extends StatelessWidget {
 
     final List<Widget> pages = [
       //Remove later. For testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      const Profile(),
+      const SharedNotepad(),
       const Profile(),
       const Profile(),
       const Profile(),
