@@ -10,10 +10,13 @@ class SharedNotepad extends StatefulWidget {
 
 class SharedNotepadState extends State<SharedNotepad> {
   final TextEditingController controller = TextEditingController();
+
+  //This gets the reference for the items in the database from a specified collection.
   final CollectionReference notesRef = FirebaseFirestore.instance.collection(
     "SharedNotepad",
   );
 
+  //This takes the text, cleans it, and ends it to the firebase.
   Future<void> addNote() async {
     if (controller.text.trim().isEmpty) return;
 
@@ -47,13 +50,15 @@ class SharedNotepadState extends State<SharedNotepad> {
 
           //This displays the notes.
 
-          //Not very well though, so update fix at some point!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          //Not very well though, looks ugly, so will fix at some point!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           Expanded(
+            //Listens to firebase. Will update when something changes.
             child: StreamBuilder<QuerySnapshot>(
               stream: notesRef.snapshots(),
 
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
+                  //If no data, load spinner.
                   return const Center(child: CircularProgressIndicator());
                 }
 

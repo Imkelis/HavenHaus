@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:househaus/pages/profile.dart';
 import 'package:househaus/pages/mainManagement.dart';
+import 'package:househaus/pages/sharedNotepad.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Foundation extends StatefulWidget {
+  const Foundation({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Foundation> createState() => _FoundationState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _FoundationState extends State<Foundation> {
   int myIndex = 0;
 
-  //List of pages my app uses / will use.
-  final List<Widget> pageList = [
-    MainManagement(),
-    Center(child: Text("Mid Section for something")),
-    Profile(),
-  ];
+  //Function to set the index of a page.
+  void onSelectPage(int index) {
+    setState(() {
+      myIndex = index;
+    });
+  }
 
+  //This lists all of the potential pages. Used when receiving a reference from mainManagement.
+  //Not sure if i like this, but it works fine so Ill keep it for now.
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pageList = [
+      MainManagement(onSelectPage: onSelectPage),
+      const Center(child: Text("Mid Section for something")),
+      const Profile(),
+      const SharedNotepad(),
+    ];
+
+    //Lists the bottom nav bar pages.
+    final List<int> navToPage = [0, 1, 2];
+
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -36,10 +49,16 @@ class _HomePageState extends State<HomePage> {
 
         onTap: (index) {
           setState(() {
-            myIndex = index;
+            myIndex = navToPage[index];
           });
         },
-        currentIndex: myIndex,
+
+        //Checks which page user is on. If the page is part of the nav bar, go there. If not, go home page.
+        //Will become useless once I remove the nav bar pages from the mainManagement icon list
+        currentIndex: navToPage.contains(myIndex)
+            ? navToPage.indexOf(myIndex)
+            : 0,
+
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
