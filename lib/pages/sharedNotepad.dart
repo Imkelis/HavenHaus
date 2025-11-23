@@ -48,14 +48,10 @@ class SharedNotepadState extends State<SharedNotepad> {
             ),
           ),
 
-          //This displays the notes.
-
-          //Not very well though, looks ugly, so will fix at some point!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           Expanded(
             //Listens to firebase. Will update when something changes.
             child: StreamBuilder<QuerySnapshot>(
               stream: notesRef.snapshots(),
-
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   //If no data, load spinner.
@@ -63,6 +59,9 @@ class SharedNotepadState extends State<SharedNotepad> {
                 }
 
                 final docs = snapshot.data!.docs;
+
+                //This displays the notes.
+                //Not very well though, looks ugly, so will fix at some point!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                 return ListView.builder(
                   itemCount: docs.length,

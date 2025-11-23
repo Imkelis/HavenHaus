@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:househaus/pages/chores.dart';
 import 'package:househaus/pages/profile.dart';
 import 'package:househaus/pages/mainManagement.dart';
 import 'package:househaus/pages/sharedNotepad.dart';
@@ -29,6 +30,7 @@ class _FoundationState extends State<Foundation> {
       const Center(child: Text("Mid Section for something")),
       const Profile(),
       const SharedNotepad(),
+      const Chores(),
     ];
 
     //Lists the bottom nav bar pages.

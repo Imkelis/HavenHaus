@@ -11,7 +11,7 @@ class MainManagement extends StatelessWidget {
       3, //SharedNotepad
       2, //Profile
       1, //Mid section
-      2, //Profile
+      4, //Chores
     ];
     // Creates the scrollable grid. Very cool
     return GridView.builder(
