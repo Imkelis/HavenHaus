@@ -9,9 +9,8 @@ class MainManagement extends StatelessWidget {
     final List<int> pagesIndex = [
       //This is where new icons / buttons are created. Using numbers so I can pass back the indexes back to the foundation.
       3, //SharedNotepad
-      2, //Profile
-      1, //Mid section
       4, //Chores
+      5, //Bills
     ];
     // Creates the scrollable grid. Very cool
     return GridView.builder(

@@ -61,7 +61,7 @@ class _ChoresState extends State<Chores> {
         ),
 
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           //This makes sure that the bottom sheet only takes as much space as needed.
           children: [
             TextField(

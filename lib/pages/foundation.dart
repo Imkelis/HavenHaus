@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:househaus/pages/bills.dart';
 import 'package:househaus/pages/chores.dart';
 import 'package:househaus/pages/profile.dart';
 import 'package:househaus/pages/mainManagement.dart';
@@ -31,6 +32,7 @@ class _FoundationState extends State<Foundation> {
       const Profile(),
       const SharedNotepad(),
       const Chores(),
+      const BillsPage(),
     ];
 
     //Lists the bottom nav bar pages.
